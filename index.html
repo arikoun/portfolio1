@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>Portfolio</title>
+
+    <style>
+         html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            background-color: #171225;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 50px;
+        }
+
+        /* MAIN SHOWCASE BOX */
+        .showcase {
+            position: relative;
+
+            width: 480px;
+            height: 360px;
+
+            left: -30%;
+            top: 0%;
+
+            background-color: #222;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow: 0px 0px 25px black;
+        }
+
+        .saperaton{
+            position: absolute;
+
+            width: 480px;
+            height: 360px;
+
+            left: 0%;
+            top: 0%;
+
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            border-radius: 20px;
+
+            z-index: 5;
+        }
+
+        .media {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        }
+
+        /* IMAGE */
+        .showcase img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        /* BUTTONS */
+        .arrow {
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+
+            border: none;
+
+            font-size: 30px;
+
+            width: 60px;
+            height: 60px;
+
+            cursor: pointer;
+
+            border-radius: 50%;
+
+            z-index: 10;
+        }
+
+        .arrow:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* LEFT BUTTON */
+        .left {
+            left: 20px;
+        }
+
+        /* RIGHT BUTTON */
+        .right {
+            right: 20px;
+        }
+
+        #home {
+            position: relative;
+        }
+
+        #projects {
+            background: #171225;
+            color: white;
+
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+
+            gap: 100px;
+
+            height: auto;
+
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .container{
+
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .socialmedia{
+
+            position: absolute;
+            width: 100vw;
+            height: 13vh;
+
+            left: 20;
+            top: 560%;
+
+            background-color: #551421;
+        }
+
+        .buttoncontainer{
+
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+
+            left: 70%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+            z-index: 10;
+        }
+
+        .content {
+
+            position: absolute;
+
+            left: 50%;
+            top: 20%;
+
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+
+            z-index: 3;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 36px;
+
+            color: white;
+
+            text-shadow:  4px 4px 10px black;
+
+            
+        }
+
+        .about {
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+
+            z-index: 3;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 36px;
+
+            color: white;          
+        }
+
+
+
+        button {
+
+            padding: 12px 24px;
+            font-size: 18px;
+
+            border: none;
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            margin-top: 20px;
+        }
+
+        button:hover {
+
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+        }
+
+        .image1 {
+
+            position: absolute;
+
+            width: 1920px;
+
+            left: 50%;
+            top: 0;
+
+            transform: translate(-50%, -50%);
+
+            z-index: 1;
+        }
+
+        .image2 {
+
+            position: absolute;
+
+            width: 200px;
+
+            left: 30%;
+            top: 20%;
+
+            transform: translate(-50%, -50%);
+
+            z-index: 2;
+        }
+
+
+        /* SKILLS SECTION */
+        #skills {
+            height: auto !important;
+            min-height: 100vh;
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            font-size: 16px;
+        }
+
+        .skills-title {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .skills-title::after {
+            content: '';
+            top : 20%;
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #7b2ff7, #f107a3);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            max-width: 820px;
+            width: 100%;
+        }
+
+        .skill-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 50px 56px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-card:hover {
+            background: rgba(123, 47, 247, 0.12);
+            border-color: rgba(123, 47, 247, 0.55);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(123, 47, 247, 0.22);
+        }
+
+        .skill-icon {
+            width: 46px;
+            height: 46px;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.18));
+        }
+
+        .skill-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .skill-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-desc {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- SOCIAL MEDIA -->
+    <div class="socialmedia">
+
+    </div>
+
+    <!-- HOME SECTION -->
+    <section id="Home">
+
+        <!-- IMAGES -->
+        <div class="container">
+            <img class="image1" src="assets/banner.jpg" alt="Back Image">
+            <img class="image2" src="assets/me.jpg" alt="Front Image">
+        </div>
+        <div class="saperaton"
+            style="
+                width: 1800px;
+                height: 10px;
+                top: 100%;
+                left: 50%;
+            ">
+        </div>  
+
+        <!-- BUTTON -->
+        <div class="buttoncontainer">
+            <a href="#Home">
+                <button>Home</button>
+            </a>
+            <a href="#projects">
+                <button>Projects</button>
+            </a>
+            <a href="#skills">
+                <button>Skills</button>
+            </a>
+            <a href="#contact">
+                <button>Contact</button>
+            </a>
+            
+        </div>
+        
+
+        <!-- TEXT -->
+        <div class="content">
+            <h1>xyz</h1>
+            <p>a unity programmer</p>
+        </div>
+        <div class="about" style="font-size: 13px; top: 70%;">
+            <h1>iam using unity engine since 2.5 years. i have 2 years of experience in the game development.
+                i cleary understand the fundamentals for programing languge and oop languges. ive worked with C#, blender, 
+                substance painter, krita and many tools, for making games.
+            </h1>
+        </div>
+
+    </section>
+
+    <!-- PROJECT SECTION -->
+<section id="projects">
+
+    <div class="saperaton"
+            style="
+                width: 1300px;
+                height: 10px;
+                top: 153%;
+                left: 50%;
+            ">
+        </div>  
+
+    <!-- PROJECT ONE -->
+    <div class="showcase">
+
+        <button class="arrow left" onclick="previousMedia('projectOne')">
+            ←
+        </button>
+
+        <div id="mediaContainer1"></div>
+
+        <button class="arrow right" onclick="nextMedia('projectOne')">
+            →
+        </button> 
+    </div>
+    <div class="content"
+        style="
+            left: 60%;
+            top: 125%;
+            position: absolute;
+            font-size: 28px;
+        ">
+
+        <p>
+            title - eye of the sea
+            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
+            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
+            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+        </p>
+
+    </div> 
+    
+    <!-- PROJECT TWO -->
+    <div class="showcase">
+        <button class="arrow left" onclick="previousMedia('projectTwo')">
+            ←
+        </button>
+
+        <div id="mediaContainer2"></div>
+
+        <button class="arrow right" onclick="nextMedia('projectTwo')">
+            →
+        </button>
+    </div>
+    <div class="content"
+        style="
+            left: 60%;
+            top: 175%;
+            position: absolute;
+            font-size: 28px;
+        ">
+
+        <p>
+            title - eye of the sea
+            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
+            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
+            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+        </p>
+
+    </div> 
+
+    <!-- PROJECT THREE -->
+    <div class="showcase">
+        <button class="arrow left" onclick="previousMedia('projectThree')">
+            ←
+        </button>
+
+        <div id="mediaContainer3"></div>
+
+        <button class="arrow right" onclick="nextMedia('projectThree')">
+            →
+        </button>
+    </div>
+    <div class="content"
+        style="
+            left: 60%;
+            top: 225%;
+            position: absolute;
+            font-size: 28px;
+        ">
+
+        <p>
+            title - eye of the sea
+            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
+            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
+            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+        </p>
+
+    </div> 
+
+    <!-- PROJECT FOUR -->
+    <div class="showcase">
+        <button class="arrow left" onclick="previousMedia('projectfour')">
+            ←
+        </button>
+
+        <div id="mediaContainer4"></div>
+
+        <button class="arrow right" onclick="nextMedia('projectfour')">
+            →
+        </button>
+    </div>
+    <div class="content"
+        style="
+            left: 60%;
+            top: 272%;
+            position: absolute;
+            font-size: 28px;
+        ">
+
+        <p>
+            title - eye of the sea
+            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
+            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
+            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+        </p>
+    </div>
+        
+<!-- PROJECT FIVE -->
+    <div class="showcase">
+        <button class="arrow left" onclick="previousMedia('projectfive')">
+            ←
+        </button>
+
+        <div id="mediaContainer5"></div>
+
+        <button class="arrow right" onclick="nextMedia('projectfive')">
+            →
+        </button>
+    </div>
+    <div class="content"
+        style="
+            left: 60%;
+            top: 320%;
+            position: absolute;
+            font-size: 28px;
+        ">
+
+        <p>
+            title - eye of the sea
+            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
+            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
+            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+        </p>
+    </div>
+
+</section>
+
+
+<!-- SKILLS SECTION -->
+<section id="skills" style="background: #171225; color: white; font-family: Arial, Helvetica, sans-serif;">
+    <h2 class="skills-title">Skills</h2>
+    <div class="skills-grid" id="skillsContainer"></div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" style="background: #171225; color: white; font-family: Arial, Helvetica, sans-serif;">
+    <h1>Contact</h1>
+</section>
+
+
+<script>
+
+    /* ASSETS BASE PATH */
+    const ASSETS = "assets/";
+
+    /* ALL PROJECTS */
+    const projects =
+    {
+
+        projectOne: {
+            currentMedia: 0,
+
+            media: [
+                ASSETS + "project_one/vid1.mp4",
+                ASSETS + "project_one/image1.jpg",
+                ASSETS + "project_one/image2.jpg",
+                ASSETS + "project_one/image3.jpg"
+            ],
+
+            container: document.getElementById("mediaContainer1")
+        },
+
+        projectTwo: {
+            currentMedia: 0,
+
+            media:
+            [
+                ASSETS + "project_two/vid1.mp4",
+                ASSETS + "project_two/image1.jpg",
+                ASSETS + "project_two/image2.jpg",
+                ASSETS + "project_two/image3.jpg"
+            ],
+
+        container: document.getElementById("mediaContainer2")},
+
+        projectThree: {
+            currentMedia: 0,
+
+            media:
+            [
+                ASSETS + "project_three/vid1.mp4",
+                ASSETS + "project_three/image1.jpg",
+                ASSETS + "project_three/image2.jpg",
+                ASSETS + "project_three/image3.jpg",
+                ASSETS + "project_three/image4.jpg",
+                ASSETS + "project_three/image5.jpg",
+                ASSETS + "project_three/image6.jpg"
+            ],
+
+        container: document.getElementById("mediaContainer3")
+        },
+
+        projectfour: {
+            currentMedia: 0,
+
+            media:
+            [
+                ASSETS + "project_four/vid1.mp4",
+                ASSETS + "project_four/image1.jpg",
+                ASSETS + "project_four/image2.jpg",
+                ASSETS + "project_four/image3.jpg"
+            ],
+
+        container: document.getElementById("mediaContainer4")
+        },
+
+        projectfive: {
+            currentMedia: 0,
+
+            media:
+            [
+                ASSETS + "project_five/vid1.mp4",
+                ASSETS + "project_five/image1.jpg",
+                ASSETS + "project_five/image2.jpg",
+                ASSETS + "project_five/image3.jpg"
+            ],
+
+        container: document.getElementById("mediaContainer5")
+        }
+
+    };
+
+
+    /* SHOW MEDIA */
+    function showMedia(projectName)
+    {
+
+        const project = projects[projectName];
+
+        project.container.innerHTML = "";
+
+        const file = project.media[project.currentMedia];
+
+
+        /* VIDEO */
+        if (file.endsWith(".mp4"))
+        {
+
+            const video = document.createElement("video");
+
+            video.src = file;
+
+            video.autoplay = true;
+            video.muted = true;
+            video.loop = true;
+            video.controls = true;
+
+            video.classList.add("media");
+
+            project.container.appendChild(video);
+        }
+
+
+        /* IMAGE */
+        else
+        {
+
+            const img = document.createElement("img");
+
+            img.src = file;
+
+            img.classList.add("media");
+
+            project.container.appendChild(img);
+        }
+    }
+
+
+    /* NEXT */
+    function nextMedia(projectName)
+    {
+
+        const project = projects[projectName];
+
+        project.currentMedia++;
+
+        if (project.currentMedia >= project.media.length)
+        {
+            project.currentMedia = 0;
+        }
+
+        showMedia(projectName);
+    }
+
+
+    /* PREVIOUS */
+    function previousMedia(projectName)
+    {
+
+        const project = projects[projectName];
+
+        project.currentMedia--;
+
+        if (project.currentMedia < 0)
+        {
+            project.currentMedia = project.media.length - 1;
+        }
+
+        showMedia(projectName);
+    }
+
+    /* LOAD FIRST MEDIA */
+    showMedia("projectOne");
+    showMedia("projectTwo");
+    showMedia("projectThree");
+    showMedia("projectfour");
+    showMedia("projectfive");
+
+    /* ── SKILLS – auto-built from image filenames ── */
+    const skillsList = [
+        { image: ASSETS + "Unity.png",            label: "Unity",             desc: "2D & 3D game development" },
+        { image: ASSETS + "Blender.png",          label: "Blender",           desc: "3D modeling & animation" },
+        { image: ASSETS + "Code.png",             label: "Coding",            desc: "C# & OOP programming" },
+        { image: ASSETS + "Github.png",           label: "GitHub",            desc: "Version control & Git" },
+        { image: ASSETS + "Substancepainter.png", label: "Substance Painter", desc: "PBR texturing & materials" },
+        { image: ASSETS + "GameDesign.png",       label: "Game Design",       desc: "Mechanics & player experience" },
+    ];
+
+    const skillsContainer = document.getElementById("skillsContainer");
+
+    skillsList.forEach(skill => {
+        const card = document.createElement("div");
+        card.className = "skill-card";
+        card.innerHTML = `
+            <img src="${skill.image}" alt="${skill.label}" class="skill-icon">
+            <div class="skill-info">
+                <span class="skill-name">${skill.label}</span>
+                <span class="skill-desc">${skill.desc}</span>
+            </div>
+        `;
+        skillsContainer.appendChild(card);
+    });
+
+</script>
+
+</body>
+</html>

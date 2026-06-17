@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>Portfolio</title>
+
+    <style>
+         html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            background-color: #171225;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 50px;
+        }
+
+        /* MAIN SHOWCASE BOX */
+        .showcase {
+            position: relative;
+
+            width: 480px;
+            height: 360px;
+
+            left: -30%;
+            top: 0%;
+
+            background-color: #222;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow: 0px 0px 25px black;
+        }
+
+        .saperaton{
+            position: absolute;
+
+            width: 480px;
+            height: 360px;
+
+            left: 0%;
+            top: 0%;
+
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            border-radius: 20px;
+
+            z-index: 5;
+        }
+
+        .media {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        }
+
+        /* IMAGE */
+        .showcase img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        /* BUTTONS */
+        .arrow {
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+
+            border: none;
+
+            font-size: 30px;
+
+            width: 60px;
+            height: 60px;
+
+            cursor: pointer;
+
+            border-radius: 50%;
+
+            z-index: 10;
+        }
+
+        .arrow:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* LEFT BUTTON */
+        .left {
+            left: 20px;
+        }
+
+        /* RIGHT BUTTON */
+        .right {
+            right: 20px;
+        }
+
+        #home {
+            position: relative;
+        }
+
+        #projects {
+            background: #171225;
+            color: white;
+
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+
+            gap: 100px;
+
+            height: auto;
+
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .container{
+
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .socialmedia{
+
+            position: absolute;
+            width: 100vw;
+            height: 13vh;
+
+            left: 20;
+            top: 540%;
+
+            background-color: #551421;
+        }
+
+        .buttoncontainer{
+
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+
+            left: 70%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+            z-index: 10;
+        }
+
+        .content {
+
+            position: absolute;
+
+            left: 50%;
+            top: 20%;
+
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+
+            z-index: 3;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 36px;
+
+            color: white;
+
+            text-shadow:  4px 4px 10px black;
+
+            
+        }
+
+        .about {
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+
+            z-index: 3;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 36px;
+
+            color: white;          
+        }
+
+
+
+        button {
+
+            padding: 12px 24px;
+            font-size: 18px;
+
+            border: none;
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            margin-top: 20px;
+        }
+
+        button:hover {
+
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+        }
+
+        .image1 {
+
+            position: absolute;
+
+            width: 1920px;
+
+            left: 50%;
+            top: 0;
+
+            transform: translate(-50%, -50%);
+
+            z-index: 1;
+        }
+
+        .image2 {
+
+            position: absolute;
+
+            width: 200px;
+
+            left: 30%;
+            top: 20%;
+
+            transform: translate(-50%, -50%);
+
+            z-index: 2;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- SOCIAL MEDIA -->
+    <div class="socialmedia">
+
+    </div>
+
+    <!-- HOME SECTION -->
+    <section id="Home">
+
+        <!-- IMAGES -->
+        <div class="container">
+            <img class="image1" src="banner.jpg" alt="Back Image">
+            <img class="image2" src="me.jpg" alt="Front Image">
+        </div>
+        <div class="saperaton"
+            style="
+                width: 1800px;
+                height: 10px;
+                top: 100%;
+                left: 50%;
+            ">
+        </div>  
+
+        <!-- BUTTON -->
+        <div class="buttoncontainer">
+            <a href="#Home">
+                <button>Home</button>
+            </a>
+            <a href="#projects">
+                <button>Projects</button>
+            </a>
+            <a href="#skills">
+                <button>Skills</button>
+            </a>
+            <a href="#contact">
+                <button>Contact</button>
+            </a>
+            
+        </div>
+        
+
+        <!-- TEXT -->
+        <div class="content">
+            <h1>xyz</h1>
+            <p>a unity programmer</p>
+        </div>
+        <div class="about" style="font-size: 13px; top: 70%;">
+            <h1>iam using unity engine since 2.5 years. i have 2 years of experience in the game development.
+                i cleary understand the fundamentals for programing languge and oop languges. ive worked with C#, blender, 
+                substance painter, krita and many tools, for making games.
+            </h1>
+        </div>
+
+    </section>
+
+    <!-- PROJECT SECTION -->
+<section id="projects">
+
+    <div class="saperaton"
+            style="
+                width: 1300px;
+                height: 10px;
+                top: 153%;
+                left: 50%;
+            ">
+        </div>  
+
+    <!-- PROJECT ONE -->
+    <div class="showcase">
+
+        <button class="arrow left" onclick="previousMedia('projectOne')">
+            ←
+        </button>
+
+        <div id="mediaContainer1"></div>
+
+        <button class="arrow right" onclick="nextMedia('projectOne')">
+            →
+        </button> 
+    </div>
+    <div class="content"
+        style="
+            left: 60%;
+            top: 125%;
+            position: absolute;
+            font-size: 28px;
+        ">
+
+        <p>
+            title - eye of the sea
+            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
+            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
+            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+        </p>
+
+    </div> 
+    
+    <!-- PROJECT TWO -->
+    <div class="showcase">
+        <button class="arrow left" onclick="previousMedia('projectTwo')">
+            ←
+        </button>
+
+        <div id="mediaContainer2"></div>
+
+        <button class="arrow right" onclick="nextMedia('projectTwo')">
+            →
+        </button>
+    </div>
+    <div class="content"
+        style="
+            left: 60%;
+            top: 175%;
+            position: absolute;
+            font-size: 28px;
+        ">
+
+        <p>
+            title - eye of the sea
+            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
+            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
+            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+        </p>
+
+    </div> 
+
+    <!-- PROJECT THREE -->
+    <div class="showcase">
+        <button class="arrow left" onclick="previousMedia('projectThree')">
+            ←
+        </button>
+
+        <div id="mediaContainer3"></div>
+
+        <button class="arrow right" onclick="nextMedia('projectThree')">
+            →
+        </button>
+    </div>
+    <div class="content"
+        style="
+            left: 60%;
+            top: 225%;
+            position: absolute;
+            font-size: 28px;
+        ">
+
+        <p>
+            title - eye of the sea
+            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
+            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
+            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+        </p>
+
+    </div> 
+
+    <!-- PROJECT FOUR -->
+    <div class="showcase">
+        <button class="arrow left" onclick="previousMedia('projectfour')">
+            ←
+        </button>
+
+        <div id="mediaContainer4"></div>
+
+        <button class="arrow right" onclick="nextMedia('projectfour')">
+            →
+        </button>
+    </div>
+    <div class="content"
+        style="
+            left: 60%;
+            top: 272%;
+            position: absolute;
+            font-size: 28px;
+        ">
+
+        <p>
+            title - eye of the sea
+            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
+            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
+            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+        </p>
+    </div>
+        
+<!-- PROJECT FIVE -->
+    <div class="showcase">
+        <button class="arrow left" onclick="previousMedia('projectfive')">
+            ←
+        </button>
+
+        <div id="mediaContainer5"></div>
+
+        <button class="arrow right" onclick="nextMedia('projectfive')">
+            →
+        </button>
+    </div>
+    <div class="content"
+        style="
+            left: 60%;
+            top: 320%;
+            position: absolute;
+            font-size: 28px;
+        ">
+
+        <p>
+            title - eye of the sea
+            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
+            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
+            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+        </p>
+    </div>
+
+</section>
+
+
+<!-- SKILLS SECTION -->
+<section id="skills" style="background: #171225; color: white; font-family: Arial, Helvetica, sans-serif;">
+    <div class="about" style="font-size: 14px; top: 390%; left: 45%;">
+        <h1>
+            * Proficient in Unity and C#, with experience developing both 2D and 3D games.<br>
+            * Strong understanding of Object-Oriented Programming (OOP) principles and clean code practices.<br>
+            * Experienced in designing and implementing gameplay mechanics, player systems, and interactive features.<br>
+            * Capable of architecting and developing complex gameplay systems from scratch, with a focus on scalability, maintainability, and performance.<br>
+            * Comfortable using Git and GitHub for version control and collaborative development workflows.<br>
+            * Skilled in debugging, performance optimization, and resolving technical challenges during development.<br>
+            * Familiar with Unity's UI system, animation tools, physics engine, and asset management workflows.<br>
+            * Able to design scalable and maintainable game architectures using industry-standard development practices.<br>
+            * Passionate about creating engaging player experiences and continuously learning new game development technologies.<br>
+
+        </h1>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" style="background: #171225; color: white; font-family: Arial, Helvetica, sans-serif;">
+    <h1>Contact</h1>
+</section>
+
+
+<script>
+
+    /* ALL PROJECTS */
+    const projects =
+    {
+
+        projectOne: {
+            currentMedia: 0,
+
+            media: [
+                "project_one/vid1.mp4",
+                "project_one/image1.jpg",
+                "project_one/image2.jpg",
+                "project_one/image3.jpg"
+            ],
+
+            container: document.getElementById("mediaContainer1")
+        },
+
+        projectTwo: {
+            currentMedia: 0,
+
+            media:
+            [
+                "project_two/vid1.mp4",
+                "project_two/image1.jpg",
+                "project_two/image2.jpg",
+                "project_two/image3.jpg"
+            ],
+
+        container: document.getElementById("mediaContainer2")},
+
+        projectThree: {
+            currentMedia: 0,
+
+            media:
+            [
+                "project_three/vid1.mp4",
+                "project_three/image1.jpg",
+                "project_three/image2.jpg",
+                "project_three/image3.jpg",
+                "project_three/image4.jpg",
+                "project_three/image5.jpg",
+                "project_three/image6.jpg"
+            ],
+
+        container: document.getElementById("mediaContainer3")
+        },
+
+        projectfour: {
+            currentMedia: 0,
+
+            media:
+            [
+                "project_four/vid1.mp4",
+                "project_four/image1.jpg",
+                "project_four/image2.jpg",
+                "project_four/image3.jpg"
+            ],
+
+        container: document.getElementById("mediaContainer4")
+        },
+
+        projectfive: {
+            currentMedia: 0,
+
+            media:
+            [
+                "project_five/vid1.mp4",
+                "project_five/image1.jpg",
+                "project_five/image2.jpg",
+                "project_five/image3.jpg"
+            ],
+
+        container: document.getElementById("mediaContainer5")
+        }
+
+    };
+
+
+    /* SHOW MEDIA */
+    function showMedia(projectName)
+    {
+
+        const project = projects[projectName];
+
+        project.container.innerHTML = "";
+
+        const file = project.media[project.currentMedia];
+
+
+        /* VIDEO */
+        if (file.endsWith(".mp4"))
+        {
+
+            const video = document.createElement("video");
+
+            video.src = file;
+
+            video.autoplay = true;
+            video.muted = true;
+            video.loop = true;
+            video.controls = true;
+
+            video.classList.add("media");
+
+            project.container.appendChild(video);
+        }
+
+
+        /* IMAGE */
+        else
+        {
+
+            const img = document.createElement("img");
+
+            img.src = file;
+
+            img.classList.add("media");
+
+            project.container.appendChild(img);
+        }
+    }
+
+
+    /* NEXT */
+    function nextMedia(projectName)
+    {
+
+        const project = projects[projectName];
+
+        project.currentMedia++;
+
+        if (project.currentMedia >= project.media.length)
+        {
+            project.currentMedia = 0;
+        }
+
+        showMedia(projectName);
+    }
+
+
+    /* PREVIOUS */
+    function previousMedia(projectName)
+    {
+
+        const project = projects[projectName];
+
+        project.currentMedia--;
+
+        if (project.currentMedia < 0)
+        {
+            project.currentMedia = project.media.length - 1;
+        }
+
+        showMedia(projectName);
+    }
+
+    /* LOAD FIRST MEDIA */
+    showMedia("projectOne");
+    showMedia("projectTwo");
+    showMedia("projectThree");
+    showMedia("projectfour");
+    showMedia("projectfive");
+
+</script>
+
+</body>
+</html>
