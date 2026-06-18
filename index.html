@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
          html {
@@ -50,7 +51,7 @@
             position: absolute;
 
             width: 480px;
-            height: 360px;
+            height: 100px;
 
             left: 0%;
             top: 0%;
@@ -168,6 +169,13 @@
 
             text-align: center;
             z-index: 10;
+
+            pointer-events: none; /* stops the invisible overlay from eating all clicks */
+        }
+
+        .buttoncontainer a,
+        .buttoncontainer button {
+            pointer-events: auto; /* nav buttons still work normally */
         }
 
         .content {
@@ -237,12 +245,13 @@
 
             position: absolute;
 
-            width: 1920px;
+            width: 100%;
+            height: 35%;
 
-            left: 50%;
+            left: 0;
             top: 0;
 
-            transform: translate(-50%, -50%);
+            object-fit: cover;
 
             z-index: 1;
         }
@@ -251,7 +260,7 @@
 
             position: absolute;
 
-            width: 200px;
+            width: 280px;
 
             left: 30%;
             top: 20%;
@@ -349,6 +358,187 @@
             color: rgba(255, 255, 255, 0.45);
         }
 
+        /* =============================================
+           CONTACT SECTION
+        ============================================= */
+
+        #contact {
+            flex-direction: column;
+            gap: 3rem;
+            height: auto;
+            padding: 6rem 2rem;
+        }
+
+        .contact-heading { text-align: center; }
+
+        .contact-eyebrow {
+            display: block;
+            font-size: 0.65rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: #8b7fff;
+            margin-bottom: 0.75rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .contact-heading h1 {
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 0.6rem;
+            letter-spacing: -0.02em;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .contact-subtitle {
+            color: #55516a;
+            font-size: 0.88rem;
+            margin: 0;
+            font-weight: 400;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            width: 100%;
+            max-width: 860px;
+        }
+
+        @media (max-width: 768px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .contact-grid { grid-template-columns: 1fr; } }
+
+        .contact-card {
+            background: #1a1528;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.32s cubic-bezier(.22,.61,.36,1), border-color 0.32s ease;
+            opacity: 0;
+            animation: cardSlideIn 0.5s cubic-bezier(.22,.61,.36,1) forwards;
+        }
+
+        .contact-card:nth-child(1) { animation-delay: 0.05s; }
+        .contact-card:nth-child(2) { animation-delay: 0.13s; }
+        .contact-card:nth-child(3) { animation-delay: 0.21s; }
+        .contact-card:nth-child(4) { animation-delay: 0.29s; }
+        .contact-card:nth-child(5) { animation-delay: 0.37s; }
+        .contact-card:nth-child(6) { animation-delay: 0.45s; }
+
+        @keyframes cardSlideIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--c-accent, #8b7fff);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .contact-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.13); }
+        .contact-card:hover::before { transform: scaleX(1); }
+
+        .contact-icon-bubble {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--c-icon-bg, rgba(139,127,255,0.12));
+            color: var(--c-accent, #8b7fff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            transition: transform 0.25s ease;
+        }
+
+        .contact-card:hover .contact-icon-bubble { transform: scale(1.1) rotate(-5deg); }
+
+        .contact-text { flex: 1; min-width: 0; }
+
+        .contact-platform-label {
+            display: block;
+            font-size: 0.57rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--c-accent, #8b7fff);
+            font-family: 'Courier New', monospace;
+            margin-bottom: 3px;
+        }
+
+        .contact-val {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #cccccc;
+            text-decoration: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-family: Arial, Helvetica, sans-serif;
+            transition: color 0.2s ease;
+        }
+
+        .contact-val:hover { color: var(--c-accent, #8b7fff); }
+
+        /* COPY BUTTON */
+        #contact .copy-btn {
+            all: unset;
+            box-sizing: border-box;
+            flex-shrink: 0;
+            width: 34px;
+            height: 34px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            color: #aaa;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-family: inherit;
+            transition: background 0.15s ease, color 0.15s ease,
+                        border-color 0.15s ease, transform 0.12s ease,
+                        box-shadow 0.15s ease;
+        }
+
+        #contact .copy-btn:hover {
+            background: rgba(255,255,255,0.14);
+            color: #fff;
+            border-color: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+
+        /* Very obvious active press state */
+        #contact .copy-btn:active {
+            transform: scale(0.88);
+            background: rgba(139,127,255,0.35);
+            color: #c4b8ff;
+            border-color: #8b7fff;
+        }
+
+        /* Very obvious copied state — solid green so it can't be missed */
+        #contact .copy-btn.copied {
+            background: #3EE6A0 !important;
+            color: #0a1a12 !important;
+            border-color: #3EE6A0 !important;
+            box-shadow: 0 0 14px rgba(62, 230, 160, 0.7) !important;
+            transform: scale(1.15) !important;
+        }
+
     </style>
 
 </head>
@@ -364,13 +554,21 @@
         <!-- IMAGES -->
         <div class="container">
             <img class="image1" src="assets/banner.jpg" alt="Back Image">
-            <img class="image2" src="assets/me.jpg" alt="Front Image">
+            <img class="image2" src="assets/me1.png" alt="Front Image">
         </div>
         <div class="saperaton"
             style="
                 width: 1800px;
                 height: 10px;
                 top: 100%;
+                left: 50%;
+            ">
+        </div>  
+        <div class="saperaton"
+            style="
+                width: 1300px;
+                height: 10px;
+                top: 450%;
                 left: 50%;
             ">
         </div>  
@@ -399,9 +597,10 @@
             <p>a unity programmer</p>
         </div>
         <div class="about" style="font-size: 13px; top: 70%;">
-            <h1>iam using unity engine since 2.5 years. i have 2 years of experience in the game development.
-                i cleary understand the fundamentals for programing languge and oop languges. ive worked with C#, blender, 
-                substance painter, krita and many tools, for making games.
+            <h1>Unity Game Developer with over 2.5 years of experience creating games and gameplay systems using Unity and C#. 
+                Strong understanding of programming fundamentals, Object-Oriented Programming, and game architecture. Experienced with Blender, 
+                Substance Painter, and Krita, enabling me to contribute to both the technical and creative aspects of game development. 
+                Passionate about building engaging, polished, and scalable game experiences.
             </h1>
         </div>
 
@@ -414,7 +613,7 @@
             style="
                 width: 1300px;
                 height: 10px;
-                top: 153%;
+                top: 348%;
                 left: 50%;
             ">
         </div>  
@@ -431,6 +630,7 @@
         <button class="arrow right" onclick="nextMedia('projectOne')">
             →
         </button> 
+        
     </div>
     <div class="content"
         style="
@@ -440,11 +640,15 @@
             font-size: 28px;
         ">
 
+        <h1 style="font-size: 40px;">
+            Eye of the sea
+        </h1>
         <p>
-            title - eye of the sea
-            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
-            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
-            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+            A story-driven first-person psychological horror game developed in Unity. 
+            Built a large open-world environment using Unity's Terrain System and developed 
+            a custom quest system from scratch to support story progression and player objectives. 
+            Focused heavily on environmental design, atmosphere, and gameplay to create an immersive 
+            and engaging horror experience.
         </p>
 
     </div> 
@@ -469,11 +673,15 @@
             font-size: 28px;
         ">
 
+        <h1 style="font-size: 40px;">
+            Robo Slayer
+        </h1>
         <p>
-            title - eye of the sea
-            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
-            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
-            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+            A fast-paced third-person hack-and-slash action game developed for a game jam. 
+            This project focused on melee combat, enemy encounters, and action-oriented gameplay. 
+            Through its development, I gained experience in creating complex enemy AI behaviors, 
+            combat systems, and player-enemy interactions. I also implemented visual effects using 
+            Unity's particle system and integrated music to enhance the overall gameplay experience.
         </p>
 
     </div> 
@@ -498,11 +706,15 @@
             font-size: 28px;
         ">
 
+        <h1 style="font-size: 40px;">
+            The Postman
+        </h1>
+
         <p>
-            title - eye of the sea
-            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
-            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
-            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+            A slow-paced cozy game developed for a game jam, 
+            centered around delivering letters and interacting with the local community. 
+            As one of my early projects, it helped me gain experience in implementing NPC behaviors, 
+            time-based events, and gameplay systems that create a relaxed and engaging player experience.
         </p>
 
     </div> 
@@ -527,11 +739,14 @@
             font-size: 28px;
         ">
 
+        <h1 style="font-size: 40px;">
+            Greedy machine
+        </h1>
         <p>
-            title - eye of the sea
-            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
-            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
-            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+            Developed a top-down hack-and-slash game for a game jam, 
+            centered around a machine protagonist and action-focused gameplay. 
+            This project helped me refine my approach to game feel, gameplay loops, 
+            and player experience by focusing on combat polish, responsiveness, and overall gameplay satisfaction
         </p>
     </div>
         
@@ -555,11 +770,15 @@
             font-size: 28px;
         ">
 
+        <h1 style="font-size: 40px;">
+            RoofRunner
+        </h1>
         <p>
-            title - eye of the sea
-            in the start when loading the game. the screen turns black. and the voice can be heard saying " hey, wake up, wake up. did you fell sleep during the work again. wake up we have a lot work
-            to do". and slowly fading the camera open. and we can see the maneki neko figure in front of us. we realise the protagonie is inside the office. and drooled off during work. and the camera
-            switches to his office computer. and on the computer. there's the main menu ui of the game. which the player cant select to play the game.
+            Developed an endless runner game for Android, featuring first-person gameplay 
+            and simple touch-based controls. Designed and implemented all core gameplay 
+            systems independently, including player movement, scoring, obstacle management, 
+            and progression mechanics. Focused on creating an engaging gameplay loop that encourages 
+            players to improve their scores and replay the game.
         </p>
     </div>
 
@@ -574,7 +793,108 @@
 
 <!-- CONTACT SECTION -->
 <section id="contact" style="background: #171225; color: white; font-family: Arial, Helvetica, sans-serif;">
-    <h1>Contact</h1>
+
+    <div class="contact-heading">
+        <span class="contact-eyebrow">reach out</span>
+        <h1>Contact Me</h1>
+        <p class="contact-subtitle">Click the <i class="far fa-copy" style="font-size:0.75rem;"></i> icon to copy any link or info</p>
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-card" style="--c-accent:#4A9EFF; --c-icon-bg:rgba(74,158,255,0.1);">
+            <div class="contact-icon-bubble"><i class="fas fa-envelope"></i></div>
+            <div class="contact-text">
+                <span class="contact-platform-label">Email</span>
+                <a href="mailto:pranavmakode950@gmail.com" class="contact-val">pranavmakode950@gmail.com</a>
+            </div>
+            <button class="copy-btn" data-copy="pranavmakode950@gmail.com" title="Copy email">
+                <i class="far fa-copy"></i>
+            </button>
+        </div>
+
+        <div class="contact-card" style="--c-accent:#d0d7de; --c-icon-bg:rgba(208,215,222,0.07);">
+            <div class="contact-icon-bubble"><i class="fab fa-github"></i></div>
+            <div class="contact-text">
+                <span class="contact-platform-label">GitHub</span>
+                <a href="https://github.com/arikoun" target="_blank" rel="noopener" class="contact-val">@arikoun</a>
+            </div>
+            <button class="copy-btn" data-copy="https://github.com/arikoun" title="Copy GitHub link">
+                <i class="far fa-copy"></i>
+            </button>
+        </div>
+
+        <div class="contact-card" style="--c-accent:#FA5252; --c-icon-bg:rgba(250,82,82,0.1);">
+            <div class="contact-icon-bubble"><i class="fab fa-itch-io"></i></div>
+            <div class="contact-text">
+                <span class="contact-platform-label">itch.io</span>
+                <a href="https://arikoun.itch.io/" target="_blank" rel="noopener" class="contact-val">arikoun.itch.io</a>
+            </div>
+            <button class="copy-btn" data-copy="https://arikoun.itch.io/" title="Copy itch.io link">
+                <i class="far fa-copy"></i>
+            </button>
+        </div>
+
+        <div class="contact-card" style="--c-accent:#E1306C; --c-icon-bg:rgba(225,48,108,0.1);">
+            <div class="contact-icon-bubble"><i class="fab fa-instagram"></i></div>
+            <div class="contact-text">
+                <span class="contact-platform-label">Instagram</span>
+                <a href="https://www.instagram.com/pranav_makode_?igsh=Z3NvZHNxdW1lcHc1" target="_blank" rel="noopener" class="contact-val">@pranav_makode</a>
+            </div>
+            <button class="copy-btn" data-copy="https://www.instagram.com/pranav_makode_?igsh=Z3NvZHNxdW1lcHc1" title="Copy Instagram link">
+                <i class="far fa-copy"></i>
+            </button>
+        </div>
+
+        <div class="contact-card" style="--c-accent:#e7e9ea; --c-icon-bg:rgba(231,233,234,0.07);">
+            <div class="contact-icon-bubble">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            <div class="contact-text">
+                <span class="contact-platform-label">X (Twitter)</span>
+                <a href="https://x.com/PranavMakode360" target="_blank" rel="noopener" class="contact-val">@PranavMakode360</a>
+            </div>
+            <button class="copy-btn" data-copy="https://x.com/PranavMakode360" title="Copy X link">
+                <i class="far fa-copy"></i>
+            </button>
+        </div>
+
+        <div class="contact-card" style="--c-accent:#3EE6A0; --c-icon-bg:rgba(62,230,160,0.1);">
+            <div class="contact-icon-bubble"><i class="fas fa-phone"></i></div>
+            <div class="contact-text">
+                <span class="contact-platform-label">Phone</span>
+                <a href="tel:7498096299" class="contact-val">+91 7498096299</a>
+            </div>
+            <button class="copy-btn" data-copy="7498096299" title="Copy phone number">
+                <i class="far fa-copy"></i>
+            </button>
+        </div>
+
+        <div class="contact-card" style="--c-accent:#4CAF50; --c-icon-bg:rgba(76,175,80,0.1);">
+            <div class="contact-icon-bubble">
+                <i class="fas fa-file-pdf"></i>
+            </div>
+
+            <div class="contact-text">
+                <span class="contact-platform-label">Resume</span>
+                <a href="https://drive.google.com/file/d/1SfUVd3rEKEAJ6uU6BawJJjIZOukQtHe7/view?usp=sharing"
+                target="_blank"
+                rel="noopener"
+                class="contact-val">
+                    View Resume
+                </a>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1SfUVd3rEKEAJ6uU6BawJJjIZOukQtHe7/view?usp=sharing"
+            download
+            class="copy-btn"
+            title="Download Resume">
+                <i class="fas fa-download"></i>
+            </a>
+        </div>
+    </div>
+
+
 </section>
 
 
@@ -745,6 +1065,52 @@
     showMedia("projectThree");
     showMedia("projectfour");
     showMedia("projectfive");
+
+    /* ── COPY BUTTONS ── */
+    document.addEventListener('click', function(e) {
+        const btn = e.target.closest('.copy-btn');
+        if (!btn) return;
+
+        const text = btn.getAttribute('data-copy');
+        if (!text) return;
+
+        const icon = btn.querySelector('i');
+
+        function applyFeedback() {
+            if (icon) icon.className = 'fas fa-check';
+            btn.classList.add('copied');
+            setTimeout(function() {
+                if (icon) icon.className = 'far fa-copy';
+                btn.classList.remove('copied');
+            }, 2000);
+        }
+
+        function fallbackCopy(t) {
+            const el = document.createElement('textarea');
+            el.value = t;
+            el.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0;';
+            document.body.appendChild(el);
+            el.focus();
+            el.select();
+            try { document.execCommand('copy'); } catch(err) {}
+            document.body.removeChild(el);
+        }
+
+        try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(applyFeedback).catch(function() {
+                    fallbackCopy(text);
+                    applyFeedback();
+                });
+            } else {
+                fallbackCopy(text);
+                applyFeedback();
+            }
+        } catch(err) {
+            fallbackCopy(text);
+            applyFeedback();
+        }
+    });
 
     /* ── SKILLS – auto-built from image filenames ── */
     const skillsList = [
